@@ -10,17 +10,27 @@ def table(nb, max=10):
 table(3, 10)
 
 class compteBancaire:
-    def __init__(self):
-		self.nom = "Dupont"
-
-	def solde(self):
-		return "1000"
+    def __init__(self, nom, solde):
+        self.nom = "Dupont"
+        self.solde = 1000
 
 
-compte1 = compteBancaire()
-compte2 = compteBancaire()
-compte3 = compteBancaire()
-print(compte1.solde(), compte2.solde(), compte3.solde())
+    # def solde(self):
+    #     return "1000"
+
+
+class UneClasse:
+    def methode(self):
+        print('un truc')
+
+
+ex = UneClasse()
+ex.methode()
+
+compte1 = compteBancaire('jean', 2000)
+# compte2 = compteBancaire()
+# compte3 = compteBancaire()
+print(compte1.nom, compte1.solde)
 
 # jupiter est un IDE serveur, et les fichiers sotn des calepins
 
@@ -35,3 +45,4 @@ print(mot)
 # self = this
 
 # init = construct
+
