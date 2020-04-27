@@ -68,7 +68,31 @@ class DateNaissance:
         self.annee = annee
 
     def toString(self):
-        print('la date est: '+ str(self.jour)+'/'+str(self.mois)+'/'+str(self.annee))
+        print(str(self.jour)+'/'+str(self.mois)+'/'+str(self.annee))
 
 date1 = DateNaissance(27, 4, 2020)
 date1.toString()
+
+class Personne:
+    def __init__(self, nom, prenom, datenaissance):
+        self.nom = nom
+        self.prenom = prenom
+        self.datenaissance = datenaissance
+
+    def afficherInfos(self):
+        return (self.nom, self.prenom, self.datenaissance)
+
+personne1 = Personne('dupont', 'marc', 27042020)
+print(personne1.prenom, personne1.nom, personne1.datenaissance)
+print(personne1.afficherInfos())
+
+class Employé(Personne):
+    def __init__(self, salaire, nom, prenom, datenaissance):
+        super().__init__(nom, prenom, datenaissance)
+        self.salaire = salaire
+
+    def afficherInfos(self):
+        return (self.nom, self.prenom, self.datenaissance, self.salaire)
+
+employe1 = Employé('potter', 'harry', DateNaissance(27,4,2020), 45000)
+print(employe1.afficherInfos())
