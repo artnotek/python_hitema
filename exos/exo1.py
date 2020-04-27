@@ -68,7 +68,7 @@ class DateNaissance:
         self.annee = annee
 
     def toString(self):
-        print(str(self.jour)+'/'+str(self.mois)+'/'+str(self.annee))
+        return (str(self.jour)+'/'+str(self.mois)+'/'+str(self.annee))
 
 date1 = DateNaissance(27, 4, 2020)
 date1.toString()
@@ -82,7 +82,7 @@ class Personne:
     def afficherInfos(self):
         return (self.nom, self.prenom, self.datenaissance)
 
-personne1 = Personne('dupont', 'marc', 27042020)
+personne1 = Personne('dupont', 'marc', DateNaissance(27,4,2020))
 print(personne1.prenom, personne1.nom, personne1.datenaissance)
 print(personne1.afficherInfos())
 
@@ -92,7 +92,19 @@ class Employé(Personne):
         self.salaire = salaire
 
     def afficherInfos(self):
-        return (self.nom, self.prenom, self.datenaissance, self.salaire)
+        return (self.nom, self.datenaissance, self.prenom, self.salaire)
 
 employe1 = Employé('potter', 'harry', DateNaissance(27,4,2020), 45000)
 print(employe1.afficherInfos())
+
+class Chef(Personne):
+    def __init__(self, salaire, service, nom, prenom, datenaissance):
+        super().__init__(nom, prenom, datenaissance)
+        self.salaire = salaire
+        self.service = service
+
+    def afficherInfos(self):
+        return (self.nom, self.datenaissance, self.prenom, self.salaire, self.service)
+
+chef1 = Chef('dufric', 'fabieng', DateNaissance(23,4,2020), 70000, 'PDG')
+print(chef1.afficherInfos())
