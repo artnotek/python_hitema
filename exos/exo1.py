@@ -11,26 +11,38 @@ table(3, 10)
 
 class compteBancaire:
     def __init__(self, nom, solde):
-        self.nom = "Dupont"
-        self.solde = 1000
+        self.nom = nom
+        self.solde = solde
 
 
     # def solde(self):
     #     return "1000"
 
+    def ajoutsolde(self, somme):
+        self.solde = self.solde + somme
 
-class UneClasse:
-    def methode(self):
-        print('un truc')
+    def retrait(self, somme):
+        self.solde = self.solde - somme
+
+    def affichersolde(self):
+        return self.solde
 
 
-ex = UneClasse()
-ex.methode()
+# class UneClasse:
+#     def methode(self):
+#         print('un truc')
+#
+#
+# ex = UneClasse()
+# ex.methode()
 
 compte1 = compteBancaire('jean', 2000)
-# compte2 = compteBancaire()
-# compte3 = compteBancaire()
-print(compte1.nom, compte1.solde)
+compte2 = compteBancaire('dupont2', 1000)
+compte3 = compteBancaire('dupont3', 1000)
+
+compte1.ajoutsolde(200)
+compte1.retrait(724)
+print(compte1.nom, compte1.solde, 'soldat actuel : '+ compte1.affichersolde())
 
 # jupiter est un IDE serveur, et les fichiers sotn des calepins
 
